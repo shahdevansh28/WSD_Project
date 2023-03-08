@@ -27,7 +27,7 @@ namespace HR_Management_System.Models
         public long DepartmentId { get; set; }
         public Department? Department { get; set; }
 
-        public ICollection<Leave>? Leaves { get; set; }
+        //public ICollection<Leave>? Leaves { get; set; }
     }
 }
 /*

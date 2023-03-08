@@ -14,7 +14,7 @@ namespace HR_Management_System.Models
         [Required]
         public string? Status { get; set; }
 
-        public long EmployeeID { get; set; }
+        //public long EmployeeID { get; set; }
         public Employee? Employee { get; set; }
     }
 }
