@@ -3,7 +3,7 @@ import { TextField,Button } from "@mui/material";
 import axios from "axios";
 import {useState} from "react";
 
-function Create(){
+function CreateDepartment(){
     const [details,setDetail]=useState({
         Id:"",Name:"",Description:""
       })
@@ -19,8 +19,9 @@ function Create(){
             Name: details.Name,
             Description: details.Description,
           });
-          alert("Thanks!! Your Profile is being Created Succesfully");
           setDetail("");
+          alert("Thanks!! Your Profile is being Created Succesfully");
+          
           
         
           // Load();
@@ -76,4 +77,4 @@ function Create(){
     )
 }
 
-export default Create;
+export default CreateDepartment;

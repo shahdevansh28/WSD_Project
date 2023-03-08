@@ -33,6 +33,7 @@ function Read() {
     })
   }
   const onDelete = (id) =>{
+    alert("Are you sure you want to delete?")
     axios.delete(`https://localhost:7226/api/Departments/${id}`)
     .then(()=>{
       getData();
@@ -43,7 +44,7 @@ function Read() {
     <div>
       <h3>Departments</h3>
       <ul>
-        <li> <Link to="/create">Create</Link></li>
+        <li> <Link to="/department/create">Create</Link></li>
       </ul>
         <Table>
           <TableHead>
@@ -62,7 +63,7 @@ function Read() {
                             <TableCell>{data.id}</TableCell>  
                             <TableCell >{data.name}</TableCell>
                             <TableCell >{data.description}</TableCell>
-                            <Link to ='/update'>
+                            <Link to ='/department/update'>
                             <TableCell ><Button onClick={()=>setData(data)}>update</Button></TableCell>
                             </Link>
                             <TableCell ><Button onClick={()=>onDelete(data.id)}>Delete</Button></TableCell>
