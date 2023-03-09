@@ -7,6 +7,9 @@ import ReadDepartment from "./Component/ReadDepartment";
 import HomePage from "./Component/HomePage";
 import { Routes, Route } from "react-router-dom";
 import ReadEmployees from "./Component/ReadEmployees";
+import UpdateEmployee from "./Component/UpdateEmployee";
+import React from "react";
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +21,7 @@ function App() {
 
           <Route path="employee" element={<ReadEmployees />} />
           <Route path="employee/create" element={<CreateEmployees />} />
+          <Route path="employee/update" element={<UpdateEmployee />} />
         {/* <Read/> */}
       </Routes>
       {/* <Create /> */}

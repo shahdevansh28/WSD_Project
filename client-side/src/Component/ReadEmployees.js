@@ -6,7 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Button} from "@mui/material";
+import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function ReadEmployees() {
@@ -19,6 +19,50 @@ function ReadEmployees() {
       setDetail(response.data);
     });
   }, []);
+  /*
+address
+department
+departmentId
+dob
+email
+gender
+id
+join_Date
+name
+password
+phone
+username
+*/
+  const setData = (data) => {
+    // console.log(data);
+    let {
+      address,
+      department,
+      departmentId,
+      dob,
+      email,
+      gender,
+      id,
+      join_Date,
+      name,
+      password,
+      phone,
+      username,
+    } = data;
+    console.log(data);
+    localStorage.setItem("Id", id);
+    localStorage.setItem("Name", name);
+    localStorage.setItem("Username", username);
+    localStorage.setItem("Password", password);
+    localStorage.setItem("Email", email);
+    localStorage.setItem("Gender", gender);
+    localStorage.setItem("Address", address);
+    localStorage.setItem("DOB", dob);
+    localStorage.setItem("DepartmentId", departmentId);
+    localStorage.setItem("Join_Date", join_Date);
+    localStorage.setItem("Phone", phone);
+    localStorage.setItem("Department",department);
+  };
   //   setDepartment()
   // const getdeptName = (id) => {
   //   axios.get(`https://localhost:7226/api/Departments/${id}`)
@@ -52,7 +96,7 @@ function ReadEmployees() {
             <TableCell>Joining Date</TableCell>
             <TableCell>Gender</TableCell>
             <TableCell>Date Of Birth</TableCell>
-            {/* <TableCell>Date of Birth</TableCell> */}
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,6 +112,11 @@ function ReadEmployees() {
                 <TableCell>{data.join_Date}</TableCell>
                 <TableCell>{data.gender}</TableCell>
                 <TableCell>{data.dob}</TableCell>
+                <Link to="/employee/update">
+                  <TableCell>
+                    <Button onClick={() => setData(data)}>update</Button>
+                  </TableCell>
+                </Link>
               </TableRow>
             );
           })}
