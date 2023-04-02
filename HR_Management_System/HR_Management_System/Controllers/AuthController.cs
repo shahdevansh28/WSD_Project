@@ -17,6 +17,7 @@ namespace HR_Management_System.Controllers
         {
             return View();
         }*/
+        
         [HttpPost("Login")]
         public async Task<ActionResult> Login(EmployeeLoginDTO empDTO)
         {
@@ -26,8 +27,20 @@ namespace HR_Management_System.Controllers
             if (user == null)
             {
                 return BadRequest($"Incorrect username or password!");
-            }/*
-            else if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+            }
+            else
+            {
+                if (user.Password != empDTO.Password)
+                {
+                    return BadRequest("Incorrect Password");
+                }
+                else
+                {
+                    return Ok(new { token = user, status = 200 });
+                    
+                }
+            }
+            /*else if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
             {
                 return null;
             }*/
@@ -36,12 +49,11 @@ namespace HR_Management_System.Controllers
                 //Console.WriteLine(user);
                 return CreateToken(user);
             }*/
-            Console.WriteLine(user);
-            /*if (res == null)
+            //Console.WriteLine(user);
+            /*if (user == null)
             {
                 return BadRequest($"Incorrect username or password!");
-            }*/
-            return Ok(new { token = user.Id, status = 200 });
+            }*/            
         }
     }
 }
