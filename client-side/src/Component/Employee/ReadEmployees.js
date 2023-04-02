@@ -61,7 +61,19 @@ username
     localStorage.setItem("DepartmentId", departmentId);
     localStorage.setItem("Join_Date", join_Date);
     localStorage.setItem("Phone", phone);
-    localStorage.setItem("Department",department);
+    localStorage.setItem("Department", department);
+  };
+  //Delete Employee
+  const getData = () => {
+    axios.get("https://localhost:7226/api/Employees").then((getData) => {
+      setDetail(getData.data);
+    });
+  };
+  const onDelete = (id) => {
+    alert("Are you sure you want to delete?");
+    axios.delete(`https://localhost:7226/api/Employees/${id}`).then(() => {
+      getData();
+    });
   };
   //   setDepartment()
   // const getdeptName = (id) => {
@@ -97,6 +109,7 @@ username
             <TableCell>Gender</TableCell>
             <TableCell>Date Of Birth</TableCell>
             <TableCell></TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -117,12 +130,15 @@ username
                     <Button onClick={() => setData(data)}>update</Button>
                   </TableCell>
                 </Link>
+                <TableCell>
+                  <Button onClick={() => onDelete(data.id)}>Delete</Button>
+                </TableCell>
               </TableRow>
             );
           })}
         </TableBody>
       </Table>
-    </div>
+    </div>  
   );
 }
 

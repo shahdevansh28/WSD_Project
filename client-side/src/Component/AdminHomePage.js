@@ -5,8 +5,8 @@ function HomePage(){
         <div>
             <h1>Home Page</h1>
             <ul>
-                <li><Link to="/department">Departments</Link></li>
-                <li><Link to="/employee">Employees</Link></li>
+                <li><Link to="/all-department">Departments</Link></li>
+                <li><Link to="/all-employee">Employees</Link></li>
             </ul>
         </div>
     )   
