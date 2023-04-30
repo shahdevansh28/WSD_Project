@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
-import { Button } from "@mui/material";
+import { AppBar, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function EmployeeHomePage() {
@@ -16,13 +16,15 @@ function EmployeeHomePage() {
       console.log(res.data);
     });
   };
+  
   useEffect(() => {
     getData();
   }, []);
-  // if (authenticated) {
-  // getData();
+
+
   return (
     <div>
+    <AppBar></AppBar>
       <Button>
         <Link to="/employee/apply-leave">Apply For a Leave</Link>
       </Button>
@@ -33,11 +35,6 @@ function EmployeeHomePage() {
       <p>Address:- {details.address}</p>
     </div>
   );
-
-  /* <div><h3>{}</h3></div> */
-  // } else {
-  // return <Navigate replace to="/" />;
-  // }
 }
 
 export default EmployeeHomePage;

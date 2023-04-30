@@ -10,10 +10,15 @@ import { Routes, Route } from "react-router-dom";
 import EmployeeHomePage from "./Component/Employee/EmployeeHomePage";
 import ReadEmployees from "./Component/Employee/ReadEmployees";
 import UpdateEmployee from "./Component/Employee/UpdateEmployee";
-import React from "react";
+import React, { useState } from "react";
 import ApplyForLeave from "./Component/Leave/ApplyForLeave";
 
 function App() {
+  //const [isLoggedIn,setIsLoggedIn] = useState();
+
+  // if(!token) {
+  //   return <LoginPage setToken={setToken} />
+  // }
   return (
     <div className="App">
       <Routes>  
